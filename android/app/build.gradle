@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin: "com.facebook.react"
 import com.android.build.OutputFile
 
 /**
@@ -76,6 +76,10 @@ import com.android.build.OutputFile
  *   extraPackagerArgs: []
  * ]
  */
+react {
+    reactRoot = rootProject.file("../node_modules/react-native/")
+    codegenDir = rootProject.file("../node_modules/react-native-codegen/")
+}
 
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
@@ -259,7 +263,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(":ReactAndroid")  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
