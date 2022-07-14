@@ -5639,6 +5639,16 @@ react-native-codegen@^0.69.1:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-codegen@^0.70.1:
+  version "0.70.1"
+  resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.70.1.tgz#af1f050d626ea0971228209b1e9d6021401cd4c7"
+  integrity sha512-r4dTaF9gsIYrlFFLhEbsfYaufQb8aEpjiIvoQxFQ7r7uM5WV3PaZdTSvx3mm/bYa4Rb7a8G+gi+tgkPCtYywTg==
+  dependencies:
+    "@babel/parser" "^7.14.0"
+    flow-parser "^0.121.0"
+    jscodeshift "^0.13.1"
+    nullthrows "^1.1.1"
+
 react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"

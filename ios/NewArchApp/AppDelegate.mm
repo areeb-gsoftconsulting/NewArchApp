@@ -1,3 +1,6 @@
+#import <reacthermes/HermesExecutorFactory.h>
+#import <React/RCTCxxBridgeDelegate.h>
+#import <React/RCTJSIExecutorRuntimeInstaller.h>
 #import "AppDelegate.h"
 
 #import <React/RCTBridge.h>
@@ -94,6 +97,16 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #if RCT_NEW_ARCH_ENABLED
 
 #pragma mark - RCTCxxBridgeDelegate
+
+- (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
+{
+  return std::make_unique<facebook::react::HermesExecutorFactory>(facebook::react::RCTJSIExecutorRuntimeInstaller([bridge](facebook::jsi::Runtime &runtime) {
+      if (!bridge) {
+        return;
+      }
+    })
+  );
+}
 
 - (std::unique_ptr<facebook::react::JSExecutorFactory>)jsExecutorFactoryForBridge:(RCTBridge *)bridge
 {
